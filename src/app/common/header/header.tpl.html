@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
+                    ng-click="menuCollapsed = ! menuCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">
+                <a href ui-sref="common.home" class="logo">
+                    <img src="assets/images/logo.jpeg" />
+                </a>
+
+            </div>
+
+        </div>
+        <div class="collapse navbar-collapse" collapse="menuCollapsed">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active">
+                    <a href ui-sref="common.home">
+                        <i class="fa fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a href ui-sref="common.about">
+                        <i class="fa fa-about"></i>
+                        About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
