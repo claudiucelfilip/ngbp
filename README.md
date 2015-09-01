@@ -1,6 +1,12 @@
 # [ngBoilerplate](http://joshdmiller.github.com/ng-boilerplate) [![Build Status](https://api.travis-ci.org/ngbp/ngbp.png?branch=v0.3.2-release)](https://travis-ci.org/ngbp/ngbp)
 
-An opinionated kickstarter for [AngularJS](http://angularjs.org) projects.
+This is a fork from the ng-boilerplate.
+- It has a modified, more modular structure
+- Replaced less with sass
+- new scss files are automatically added
+- integrated a initializr boilerplate
+- and other good stuff
+
 
 ***
 
