@@ -79,17 +79,32 @@ At a high level, the structure looks roughly like this:
 
 ```
 ng-boilerplate/
-  |- grunt-tasks/
   |- karma/
   |- src/
   |  |- app/
-  |  |  |- <app logic>
+  |  |  |- common/
+  |  |  |  |- header
+  |  |  |     |- header.tpl.html
+  |  |  |     |- controller.js
+  |  |  |     |- style.scss
+  |  |  |  |- <more partials>
+  |  |  |  |- layout.tpl.html
+  |  |  |  |- controller.js
+  |  |  |  |- route.js
+  |  |  |  |- style.scss
+  |  |  |- components/
+  |  |  |  |- <directives>
+  |  |  |- pages/
+  |  |  |  |- home
+  |  |  |     |- home.tpl.html
+  |  |  |     |- controller.js
+  |  |  |     |- route.js
+  |  |  |     |- style.scss
+  |  |  |  |- <more pages>
+  |  |  |- services/
+  |  |  |  |- <services/factories/providers>
   |  |- assets/
   |  |  |- <static files>
-  |  |- common/
-  |  |  |- <reusable code>
-  |  |- less/
-  |  |  |- main.less
   |- vendor/
   |  |- angular-bootstrap/
   |  |- bootstrap/

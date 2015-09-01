@@ -7,27 +7,38 @@ tests of such code.
 
 ```
 src/
-  |- app/
-  |  |- about/
-  |  |- home/
-  |  |- app.js
-  |  |- app.spec.js
-  |- assets/
-  |- common/
-  |  |- plusOne/
-  |- less/
-  |  |- main.less
-  |  |- variables.less
-  |- index.html
+|- app/
+|  |- common/
+|  |  |- header
+|  |     |- header.tpl.html
+|  |     |- controller.js
+|  |     |- style.scss
+|  |  |- <more partials>
+|  |  |- layout.tpl.html
+|  |  |- controller.js
+|  |  |- route.js
+|  |  |- style.scss
+|  |- components/
+|  |  |- <directives>
+|  |- pages/
+|  |  |- home
+|  |     |- home.tpl.html
+|  |     |- controller.js
+|  |     |- route.js
+|  |     |- style.scss
+|  |  |- <more pages>
+|  |- services/
+|  |  |- <services/factories/providers>
+|- assets/
+|  |- <static files>
 ```
+
+
 
 - `src/app/` - application-specific code, i.e. code not likely to be reused in
   another application. [Read more &raquo;](app/README.md)
 - `src/assets/` - static files like fonts and images. 
   [Read more &raquo;](assets/README.md)
-- `src/common/` - third-party libraries or components likely to be reused in
-  another application. [Read more &raquo;](common/README.md)
-- `src/less/` - LESS CSS files. [Read more &raquo;](less/README.md)
 - `src/index.html` - this is the HTML document of the single-page application.
   See below.
 

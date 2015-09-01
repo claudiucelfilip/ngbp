@@ -2,10 +2,10 @@ angular.module('myapp', [
     'templates-app',
     'templates-common',
     'ui.router'
-])
+]).run(function () {
+});
 
-    .run(function run () {
-    })
 
-;
-
+angular.element(document).ready(function() {
+    angular.bootstrap(document, ['myapp']);
+});
