@@ -1,22 +1,23 @@
 angular.module('myapp')
     .config(function myAppConfig ($stateProvider, $urlRouterProvider) {
-        console.log('common');
         $stateProvider
-
             .state('common', {
-
                 views: {
                     '@':             {
-                        templateUrl: 'common/layout.tpl.html'
+                        templateUrl: 'common/layout.html'
+                    },
+                    'sub-header@common': {
+                        controller:  'SubHeaderCtrl',
+                        templateUrl: 'common/sub-header/template.html'
                     },
                     'header@common': {
                         controller:  'HeaderCtrl',
-                        templateUrl: 'common/header/header.tpl.html'
+                        templateUrl: 'common/header/template.html'
                     },
 
                     'footer@common': {
                         controller:  'FooterCtrl',
-                        templateUrl: 'common/footer/footer.tpl.html'
+                        templateUrl: 'common/footer/template.html'
                     }
                 }
 

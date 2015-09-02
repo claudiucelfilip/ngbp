@@ -95,7 +95,9 @@ module.exports = function (grunt) {
                 ]
             },
             css_folder: {
-                src: ['<%= compile_dir %>/assets/css']
+                src: [
+                    '<%= compile_dir %>/assets/css',
+                    '<%= compile_dir %>/assets/sass']
             },
             css: {
                 src: ['<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css']
@@ -185,12 +187,21 @@ module.exports = function (grunt) {
              * The `build_css` target concatenates compiled CSS and vendor CSS
              * together.
              */
+            options: {
+                sourceMap: true
+            },
             build_css:  {
                 src:  [
                     '<%= vendor_files.css %>',
-                    '<%= build_dir %>/assets/**/*.css'
+                    '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
                 ],
                 dest: '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
+            },
+
+            build_sass:  {
+
+                src:  ['<%= app_files.scss %>'],
+                dest: '<%= build_dir %>/assets/sass/<%= pkg.name %>-<%= pkg.version %>.scss'
             },
             /**
              * The `compile_js` target is the concatenation of our application source
@@ -293,13 +304,15 @@ module.exports = function (grunt) {
         sass: {
             build:   {
                 options: {
-                    noCache: true
+                    noCache: true,
+                    lineNumbers: true,
+                    style: 'expanded'
                 },
                 files: [{
-                    expand: true,
-                    cwd: 'src/app',
-                    src: ['<%= app_files.cscss %>', '<%= app_files.ascss %>'],
-                    dest: '<%= build_dir %>/assets/css',
+                    expand: false,
+                    cwd: './',
+                    src: '<%= build_dir %>/assets/sass/<%= pkg.name %>-<%= pkg.version %>.scss',
+                    dest: '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css',
                     ext: '.css'
                 }]
             },
@@ -308,10 +321,10 @@ module.exports = function (grunt) {
                     style: 'compressed'
                 },
                 files: [{
-                    expand: true,
-                    cwd: 'src/app',
-                    src: ['<%= app_files.cscss %>', '<%= app_files.ascss %>'],
-                    dest: '<%= build_dir %>/assets/css',
+                    expand: false,
+                    cwd: './',
+                    src: '<%= build_dir %>/assets/sass/<%= pkg.name %>-<%= pkg.version %>.scss',
+                    dest: '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css',
                     ext: '.css'
                 }]
             }
@@ -430,6 +443,7 @@ module.exports = function (grunt) {
                     '<%= build_dir %>/src/**/*.js',
                     '<%= html2js.common.dest %>',
                     '<%= html2js.app.dest %>',
+                    'livereaload.js',
                     '<%= vendor_files.css %>',
                     '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
                 ]
@@ -561,7 +575,7 @@ module.exports = function (grunt) {
 
             sass: {
                 files: ['src/**/*.scss'],
-                tasks: ['clean:css', 'sass:build', 'concat:build_css']
+                tasks: ['clean:css', 'concat:build_sass', 'sass:build', 'concat:build_css']
             },
 
             /**
@@ -615,7 +629,7 @@ module.exports = function (grunt) {
      * The `build` task gets your app ready to run for development and testing.
      */
     grunt.registerTask('build', [
-        'clean:build', 'html2js', 'jshint', 'coffeelint', 'coffee', 'sass:build',
+        'clean:build', 'html2js', 'jshint', 'coffeelint', 'coffee', 'concat:build_sass', 'sass:build',
         'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
         'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss', 'index:build', 'karmaconfig',
         'karma:continuous'
@@ -626,7 +640,7 @@ module.exports = function (grunt) {
      * minifying your code.
      */
     grunt.registerTask('compile', [
-        'sass:compile', 'copy:compile_assets', 'ngAnnotate', 'concat:compile_js', 'uglify', 'index:compile','clean:css_folder'
+        'concat:build_sass', 'sass:compile', 'concat:build_css', 'copy:compile_assets', 'ngAnnotate', 'concat:compile_js', 'uglify', 'index:compile','clean:css_folder'
     ]);
 
     /**

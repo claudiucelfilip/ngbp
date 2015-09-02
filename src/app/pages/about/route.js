@@ -7,7 +7,7 @@ angular.module('myapp')
             views: {
                 'main@common': {
                     controller:  'AboutCtrl',
-                    templateUrl: 'pages/about/about.tpl.html'
+                    templateUrl: 'pages/about/template.html'
                 }
             },
             data:  {pageTitle: 'What is It?'}

@@ -3,6 +3,6 @@ angular.module('myapp')
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: 'components/home-jumbotron/directive.tpl.html'
+            templateUrl: 'components/home-jumbotron/template.html'
         };
     });

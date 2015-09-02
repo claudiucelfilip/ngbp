@@ -6,7 +6,7 @@ angular.module('myapp')
             views: {
                 'main@common': {
                     controller:  'HomeCtrl',
-                    templateUrl: 'pages/home/home.tpl.html'
+                    templateUrl: 'pages/home/template.html'
                 }
             },
             data:  {
