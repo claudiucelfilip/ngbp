@@ -1,7 +1,6 @@
 angular.module('myapp')
 
     .config(function config ($stateProvider) {
-
         $stateProvider.state('common.dashboard', {
             url:   '/dashboard',
             views: {

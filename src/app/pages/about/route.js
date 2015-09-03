@@ -1,7 +1,6 @@
 angular.module('myapp')
 
     .config(function config ($stateProvider) {
-        console.log('about');
         $stateProvider.state('common.about', {
             url:   '/about',
             views: {

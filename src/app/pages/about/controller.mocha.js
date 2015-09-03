@@ -8,7 +8,7 @@ describe('about section', function () {
     beforeEach(module('myapp'));
 
     it('should have a dummy test', inject(function () {
-        expect(true).toBeTruthy();
+        true.should.be.ok;
     }));
 });
 

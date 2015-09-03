@@ -1,6 +1,5 @@
 angular.module('myapp')
     .config(function config ($stateProvider) {
-        console.log('home');
         $stateProvider.state('common.home', {
             url:   '/home',
             views: {

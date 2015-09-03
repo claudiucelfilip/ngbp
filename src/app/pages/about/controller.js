@@ -6,5 +6,5 @@ angular.module('myapp')
             "And another choice for you.",
             "but wait! A third!"
         ];
-        console.log('ABOUT');
+
     });

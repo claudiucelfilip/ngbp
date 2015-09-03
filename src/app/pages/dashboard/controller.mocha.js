@@ -4,11 +4,11 @@
  * build process will exclude all `.spec.js` files from the build
  * automatically.
  */
-describe('home section', function () {
+describe('dashboard section', function () {
     beforeEach(module('myapp'));
 
     it('should have a dummy test', inject(function () {
-        expect(true).toBeTruthy();
+        true.should.be.ok;
     }));
 });
 
